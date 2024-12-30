@@ -1,24 +1,30 @@
 {% extends "base.html" %}
-
-{% load wagtailcore_tags wagtailimages_tags %}  
-
-{% block body_class %}template-blogindexpage{% endblock %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
 {% block content %}
-    <h1>{{ page.title }}</h1>
-
-    <div class="intro">{{ page.intro|richtext }}</div>
-    {% for post in blogpages %}
+<div class="container mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for post in blogpages %}
         {% with post=post.specific %}
-            <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
-
-            {% with post.main_image as main_image %}
-                {% if main_image %}{% image main_image fill-160x100 %}{% endif %}
-            {% endwith %}
-
-            <p>{{ post.intro }}</p>
-            {{ post.body|richtext }}
+        <div class="block bg-gray-800 rounded-lg overflow-hidden shadow hover:shadow-lg">
+            <!-- Image link -->
+            <a href="{% pageurl post %}" class="block">
+                <div class="relative w-full">
+                    {% image post.main_image.0 fill-400x200-c100 class="object-cover w-full h-48" %}
+                </div>
+            </a>
+            <!-- Title link -->
+            <div class="p-4">
+                <a href="{% pageurl post %}" class="text-lg font-semibold text-white hover:text-teal-500 no-underline">
+                    {{ post.title }}
+                </a>
+                <p class="text-sm text-gray-400 mt-2">{{ post.intro|truncatechars:100 }}</p>
+            </div>
+        </div>
         {% endwith %}
-    {% endfor %}
-
+        {% endfor %}
+    </div>
+    <!-- <h1 class="text-3xl font-extrabold text-white mb-2">Resources and insights</h1>
+    <p class="text-gray-400 mb-8">The latest industry news, interviews, technologies, and resources.</p> -->
+</div>
 {% endblock %}

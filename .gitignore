@@ -1,0 +1,7 @@
+./frontend-app/node_modules
+
+./frontend-app/.cache
+./frontend-app/build
+./frontend-app/.env
+
+./backend/mysite/static/output.css

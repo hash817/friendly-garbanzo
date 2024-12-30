@@ -204,7 +204,7 @@ WAGTAILADMIN_RICH_TEXT_EDITORS = {
                 'ol',            # Numbered list
                 'blockquote',    # Blockquote
                 'code',          # Inline code
-                'pre',           # Preformatted text
+                'image',
             ],
         },
     },
