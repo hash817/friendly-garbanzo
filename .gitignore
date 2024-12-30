@@ -1,7 +1,7 @@
-./frontend-app/node_modules
+frontend-app/node_modules/
+frontend-app/.cache
+frontend-app/build
+frontend-app/.env
 
-./frontend-app/.cache
-./frontend-app/build
-./frontend-app/.env
-
-./backend/mysite/static/output.css
+backend/mysite/static/css/output.css
+backend/tailwindcss.exe
