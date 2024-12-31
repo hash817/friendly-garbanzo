@@ -5,3 +5,5 @@ frontend-app/.env
 
 backend/mysite/static/css/output.css
 backend/tailwindcss.exe
+
+venv/
